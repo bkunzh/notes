@@ -26,7 +26,7 @@
 	killall httpd /service httpd stop
 	
 	
-	nginx配置两个虚拟主机都使用80端口（通过不同域名来区分）
+	配置1）nginx配置两个虚拟主机都使用80端口（通过不同域名来区分）
 	vim conf/nginx.conf
 	配置如下：
     server {
@@ -68,3 +68,28 @@
 	192.168.230.132 test2.bkunzhang.com
 	
 	本地访问test1.bkunzhang.com，test2.bkunzhang.com成功！
+	
+	配置2）配置反向代理两个tomcat，通过upstream子节点server的weight配置负载均衡
+	需要配置两个tomcat，端口号分别为8080和30011
+	upstream tomcats {
+
+		server 127.0.0.1:8081;
+		server 127.0.0.1:30011 weight=4;
+    }
+
+    server {
+        listen       80;
+        server_name  test3.bkunzhang.com;
+
+
+        location / {
+            proxy_pass http://tomcats;
+            index  index.html index.htm;
+        }
+
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+
+    }
