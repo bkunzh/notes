@@ -1,0 +1,4 @@
+1. spring是父容器，spring mvc是子容器。子容器可以访问父容器的对象，父容器不能访问子容器的对象
+2. 要上传图片、文件等，需要在spring mvc配置多媒体文件解析器CommonsMultipartResolver。
+	接收页面enctype="multipart/form-data"类型的表单。
+	还要添加common-io的依赖。
