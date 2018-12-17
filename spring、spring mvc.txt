@@ -1,4 +1,11 @@
-1. spring是父容器，spring mvc是子容器。子容器可以访问父容器的对象，父容器不能访问子容器的对象
-2. 要上传图片、文件等，需要在spring mvc配置多媒体文件解析器CommonsMultipartResolver。
+1. spring是父容器，spring mvc是子容器。子容器可以访问父容器的对象，父容器不能访问子容器的对象。
+	所以spring mvc中可以注入spring容器的service等dao，但在service中不能注入controller。
+	
+2. @Value注解只能注入当前容器中的属性。
+	在spring mvc的Controller中要获得spring容器加载的属性文件的属性值，有两种方式：
+	1）service中注入属性，增加一个方法返回属性值，在controller中注入service，调用方法；
+	2）在mvc配置文件中也配置<context:property-placeholder location="classpath:/xxx.properties" />
+	
+3. 要上传图片、文件等，需要在spring mvc配置多媒体文件解析器CommonsMultipartResolver。
 	接收页面enctype="multipart/form-data"类型的表单。
 	还要添加common-io的依赖。
