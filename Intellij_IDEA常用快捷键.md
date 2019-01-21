@@ -10,7 +10,7 @@ Alt+Insert 生成代码
 Shift+F6 重构：修改类名、方法名、变量名
 Ctrl+Space / Ctrl+Shift+Space 补全代码
 Ctrl+Y 删除当前行/选中行
-Ctrl+D 复制当前行到下方
+Ctrl+D 复制当前行（选中行）到下方
 Ctrl+Z / Ctrl+Shift+Z 撤销/取消撤销
 Ctrl+F 当前文件搜索字符串
 ctrl+R 当前文件替换
@@ -23,9 +23,16 @@ Ctrl+Shift+N 打开文件
 双击Shift 搜索一切（可以路径缩写+文件名，比如no/info，可以搜到对应jsp文件）
 Ctrl+Shift+F 所有/指定范围文件搜索字符串
 
-
-
 Ctrl+G 跳转到行
 Ctrl+Q 查看方法、变量说明
-F2 高亮错误快速定位
+F2 / Shift+F2 高亮错误快速定位
+Ctrl+W 选择代码，多按几下试试
+Ctrl+Alt+左/右方向 在当前文件跳转到前一次编辑的位置
+Alt+左/右方向 跳转到上一个文件编辑位置
+
+减少用鼠标：
+多用PageUP/PageDown键来翻页
+Ctrl+上下方向，一行一行滚动屏幕，光标位置不变
+
+Ctrl+E 最近的文件/视图列表
  
