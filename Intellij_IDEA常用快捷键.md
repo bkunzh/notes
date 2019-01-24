@@ -38,4 +38,6 @@ Home/End 跳转到行开头和结尾
 
 Ctrl+E 最近的文件/视图列表
 
+Ctrl+Shift+U 大写小写转换
+
  
