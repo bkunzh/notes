@@ -40,4 +40,5 @@ Ctrl+E 最近的文件/视图列表
 
 Ctrl+Shift+U 大写小写转换
 
+Ctrl+Shift+F9 重新编译当前类，可以热部署
  
