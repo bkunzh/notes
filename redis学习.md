@@ -11,14 +11,18 @@
 - 4)Set
 - 5)SortedSet
 
-## 5. redis不同数据的操作
-1) 字符串
+## 5. redis操作
+1) key
+- keys *
+- type key
+
+2) 字符串
 - set、get、del
 - setnx
 - incr、incrby
 - decr、decrby
 -append
-2) 哈希
+3) 哈希
 - hset、hget
 - hmset、hmget、hgetall、hdel
 - hincrby
@@ -33,17 +37,17 @@
  del key
  hincrby key hashkey1 xx
 
-3) 列表
+4) 列表
 - lpush、rpush
--lrange
+- lrange
 - lpop、rpop
 - llen
 - lpushx、rpushx
-(RPUSHX key value将值 value 插入到列表 key 的表尾，当且仅当 key 存在并且是一个列表)
+(xxPUSHX key value将值 value 插入到列表 key 的表尾，当且仅当 key 存在并且是一个列表)
 - lrem
  
 - lset、linsert
- rpoplpush （备份队列）
+ - rpoplpush （备份队列、旋转）
 
 举例：
 - lpush key a b c
@@ -55,9 +59,9 @@
 - lrange key 0 5
 >(结果：a b c 1 2 3)
 
-4) Set 集合
+5) Set 集合
 
-5) SortedSet 有序集合
+6) SortedSet 有序集合
 
  
 更多命令用法查文档
