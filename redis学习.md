@@ -63,6 +63,9 @@
 
 6) SortedSet 有序集合
 
+## 6. redis不同数据类型在哪些场景使用
+见<https://github.com/doocs/advanced-java/blob/master/docs/high-concurrency/redis-data-types.md>
+
  
 更多命令用法查文档
 - <http://doc.redisfans.com/>
