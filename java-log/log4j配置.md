@@ -28,7 +28,7 @@ log4j.appender.stdout.layout.ConversionPattern=%d %p [%c] - %m%n
 		</dependency>
 ```
 
-99. 一个疑问？？
+99. 一个疑问 unknown??
 配置`log4j.category.logger`和`log4j.logger`有区别吗？为什么前者可以关掉apache工具的调试日志，后者不行，如下：
 ```
 #关闭apache beanutils的调试信息
