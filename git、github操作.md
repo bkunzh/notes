@@ -5,6 +5,7 @@
 - [3. github fork的项目，别人的项目更新了，怎么更新自己的仓库。有两种方法：](#3-github-fork的项目别人的项目更新了怎么更新自己的仓库有两种方法)
 - [4. github clone wiki](#4-github-clone-wiki)
 - [5. fork项目不会复制wiki。但如果想把wiki也fork过来，怎么办](#5-fork项目不会复制wiki但如果想把wiki也fork过来怎么办)
+- [6. Issues备份/下载](#6-Issues备份/下载)
 
 <!-- /TOC -->
 ## 1. git 基础命令
@@ -80,3 +81,6 @@ git pull origin master
 git push my-fork master
 ```
 - > (参考)(https://codeday.me/bug/20190207/636869.html)
+
+## 6. Issues备份/下载
+见<https://github.com/bkunzhang/notes/issues/12>
