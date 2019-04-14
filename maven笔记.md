@@ -35,6 +35,22 @@
       </properties>
     </profile>
 ```
+或者在项目的pom.xml设置
+```xml
+<build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <debug>false</debug>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+```
 ## 3. maven镜像
 settings.xml
 ```XML
