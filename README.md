@@ -7,6 +7,7 @@
 ## 5. [win进程、端口查看](./win进程、端口查看.txt)
 ## 6. [当前路径、classpath等](当前路径、classpath等.md)
 ## 7. [redis学习](redis学习.md)
+- [redis学习-redis-cluster客户端集群.md](./redis学习-redis-cluster客户端集群.md)
 ## 8. [各种配置](config/)
   ？待继续学习
 ## 99. 还有一些见笔记[wiki](https://github.com/bkunzhang/notes/wiki)
