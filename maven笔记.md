@@ -1,5 +1,6 @@
 <!-- TOC -->
 
+- [0. 要理解maven生命周期](#0-要理解maven生命周期)
 - [1. mvn install](#1-mvn-install)
 - [2. maven设置默认JDK版本](#2-maven设置默认jdk版本)
 - [3. maven镜像](#3-maven镜像)
@@ -12,6 +13,9 @@
 - [6. maven的setting.xml中的<mirror>和<profiles>下的<repository>有啥区别，可以读一下英文注释](#6-maven的settingxml中的mirror和profiles下的repository有啥区别可以读一下英文注释)
 
 <!-- /TOC -->
+## 0. 要理解maven生命周期
+3个生命周期，clean、default（validate、resource、compile、test-resource、test-compile、test、package、install、deploy）、site。3个生命周期互不影响，但默认生命周期后面的阶段（parse）依赖前端阶段，执行后面的phase会先依次执行当前生命周期前面的phase。另外，常用的phase是绑定了默认的插件来完成构建工作的，自己的插件也可以绑定在phase上。  
+> 工具类的东西理解原理，用的时候搜索就可以。不需要想着又是一个很大的技术，需要怎样怎样学习，买一本书看，关键知道这个技术能用来干嘛，需要时学习就好。不要畏惧一个技术
 ## 1. mvn install 
 有些中央仓库没有的jar包，maven会报错，所以要把jar包安装到本地仓库，如下
 	- 1）通过cmd输入命令
