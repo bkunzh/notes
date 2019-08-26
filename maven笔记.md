@@ -4,7 +4,12 @@
 - [1. mvn install](#1-mvn-install)
 - [2. maven设置默认JDK版本](#2-maven设置默认jdk版本)
 - [3. maven镜像](#3-maven镜像)
+    - [3.1 也可以在pom.xml配置spring相关](#31-也可以在pomxml配置spring相关)
 - [4. maven 聚合 继承](#4-maven-聚合-继承)
+    - [4.0 继承和传递依赖](#40-继承和传递依赖)
+        - [1) 继承](#1-继承)
+        - [2) 依赖传递](#2-依赖传递)
+            - [2.1) scope的依赖传递](#21-scope的依赖传递)
     - [4.1 聚合](#41-聚合)
     - [4.2 继承](#42-继承)
     - [4.3 总结](#43-总结)
@@ -59,6 +64,12 @@
 settings.xml
 ```XML
     <mirror>
+      <id>central repo</id>
+      <name>central repo</name>
+      <url>http://repo.maven.apache.org/maven2/</url>
+      <mirrorOf>central</mirrorOf>
+	  </mirror>
+    <mirror>
       <id>alimaven</id>
       <name>aliyun maven</name>
       <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
@@ -89,7 +100,7 @@ settings.xml
       <url>http://repository.jboss.org/nexus/content/groups/public</url>
     </mirror>
 ```
-也可以在pom.xml配置spring相关 unknown ??
+### 3.1 也可以在pom.xml配置spring相关
 ```xml
 <repository>
     <id>spring-repo</id>
@@ -113,6 +124,19 @@ settings.xml
 
 ## 4. maven 聚合 继承
 聚合主要为了快速构建项目，继承主要为了消除重复。不一定需要一起使用，可以单独使用聚合，也可以结合使用。
+
+### 4.0 继承和传递依赖
+#### 1) 继承
+> 子项目父项目中的依赖  
+比如说我们有一个父项目maven-parent，该父项目拥有一个子项目A，如果在父项目中依赖了junit，那么在子项目A中即便是没有引入junit，在子项目中仍然能够使用junit，因为子项目天然继承了父项目中的junit依赖。
+#### 2) 依赖传递
+> 在Maven中，依赖是可以传递的
+就是说假设存在三个项目，分别是项目A，项目B以及项目C，假设C依赖于B，B依赖于A，那么我们可以根据Maven项目依赖的特征不难推出项目C也依赖于A
+##### 2.1) scope的依赖传递
+A–>B–>C。当前项目为A，A依赖于B，B依赖于C。知道B在A项目中的scope，那么怎么知道C在A中的scope呢？答案是： 
+当C是test或者provided时，C直接被丢弃，A不依赖C； 
+如图：(竖向：c在b的scope，横向：b在a的scope)
+![](imgs/maven_scope_transitive.jpg)
 
 ### 4.1 聚合
 > 把多个模块或项目聚合到一起，就能一次构建多个模块或项目。需要建立一个专门负责聚合工作的Maven项目（聚合项目）
@@ -168,7 +192,8 @@ settings.xml
 
 > dependencyManagement元素：不会给parent引入依赖，也不会给它的子模块引入依赖，仅仅是它的配置是可继承的。子模块定义dependency时，只用声明groupId和artifactId，表示当前配置是继承于父POM的，version和dependencyManagement中声明的一样。
 
-> pluginManagement这个元素和dependencyManagement相类似，它是用来进行插件管理的。 todo test ??
+> pluginManagement这个元素和dependencyManagement相类似，它是用来进行插件管理的。
+
 ### 4.3 总结
 继承和聚合不一定同时使用。没有继承关系，只有多个模块，可以只用聚合。当有继承关系，可以结合聚合，把多个项目统一管理，这时一般聚合项目就是父项目，其打包方式为pom，配置modules，在子项目中配置parent。
 
