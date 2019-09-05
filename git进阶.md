@@ -8,3 +8,9 @@
 > ![](imgs/git-branches-2.png)
 
 > ![](imgs/git-branches-4.jpg)
+
+## 2. git 进阶命令
+git stash 暂存更改到栈，并还原工作区到最新提交的版本
+git reset
+git revert 在多人合作的版本，如果已经push了，可以用这个命令还还原某次提交，它是增加一次提交，把提交的内容还原
+git rebase
