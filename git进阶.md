@@ -14,3 +14,6 @@ git stash 暂存更改到栈，并还原工作区到最新提交的版本
 git reset
 git revert 在多人合作的版本，如果已经push了，可以用这个命令还还原某次提交，它是增加一次提交，把提交的内容还原
 git rebase
+
+## 3. git忽略已经被提交的文件
+git rm --cached logs/xx.log，然后更新 .gitignore 忽略掉目标文件，最后 git commit -m "We really don't want Git to track this anymore!"
