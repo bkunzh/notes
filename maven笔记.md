@@ -4,7 +4,7 @@
 - [1. mvn install](#1-mvn-install)
 - [2. maven设置默认JDK版本](#2-maven设置默认jdk版本)
 - [3. maven镜像](#3-maven镜像)
-    - [3.1 也可以在pom.xml配置spring相关](#31-也可以在pomxml配置spring相关)
+    - [3.1 在pom.xml指定maven仓库](#31-在pomxml指定maven仓库)
 - [4. maven 聚合 继承](#4-maven-聚合-继承)
     - [4.0 继承和传递依赖](#40-继承和传递依赖)
         - [1) 继承](#1-继承)
@@ -15,7 +15,7 @@
     - [4.3 总结](#43-总结)
     - [4.4 参考](#44-参考)
 - [5. maven命令](#5-maven命令)
-- [6. maven的setting.xml中的<mirror>和<profiles>下的<repository>有啥区别，可以读一下英文注释](#6-maven的settingxml中的mirror和profiles下的repository有啥区别可以读一下英文注释)
+- [6. maven的全局setting.xml和项目pom.xml的优先级](#6-maven的全局settingxml和项目pomxml的优先级)
 
 <!-- /TOC -->
 ## 0. 要理解maven生命周期
@@ -100,8 +100,9 @@ settings.xml
       <url>http://repository.jboss.org/nexus/content/groups/public</url>
     </mirror>
 ```
-### 3.1 也可以在pom.xml配置spring相关
+### 3.1 在pom.xml指定maven仓库
 ```xml
+<repositories>
 <repository>
     <id>spring-repo</id>
     <name>Spring Repository</name>
@@ -120,6 +121,7 @@ settings.xml
         <enabled>true</enabled>
     </snapshots>
 </repository>
+</repositories>
 ```
 
 ## 4. maven 聚合 继承
@@ -135,7 +137,7 @@ settings.xml
 ##### 2.1) scope的依赖传递
 A–>B–>C。当前项目为A，A依赖于B，B依赖于C。知道B在A项目中的scope，那么怎么知道C在A中的scope呢？答案是： 
 当C是test或者provided时，C直接被丢弃，A不依赖C； 
-如图：(竖向：c在b的scope，横向：b在a的scope)
+如图：~~(竖向：c在b的scope，横向：b在a的scope)~~ 好像不是这样？？ 
 ![](imgs/maven_scope_transitive.jpg)
 
 ### 4.1 聚合
@@ -207,6 +209,6 @@ A–>B–>C。当前项目为A，A依赖于B，B依赖于C。知道B在A项目�
 - mvn package
 - mvn install
 
-## 6. maven的setting.xml中的<mirror>和<profiles>下的<repository>有啥区别，可以读一下英文注释
-todo ??
-> 翻译笔记见：见<https://github.com/bkunzhang/coder-english/blob/master/paragraph/maven.md>，已经翻译了一部分
+## 6. maven的全局setting.xml和项目pom.xml的优先级
+三者的级先是 pom.xml  > /home_dir/.m2/settings.xml > /maven_dir/conf/settings.xml 。  
+
