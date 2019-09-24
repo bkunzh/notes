@@ -1,4 +1,5 @@
 1. 查看某个端口占用情况
 netstat -ano|findstr 6379
+netstat -ano|find "6379"
 2. 杀掉某个pid的进程
 taskkill -pid 5860 [-F]
