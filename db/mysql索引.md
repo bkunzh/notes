@@ -8,11 +8,14 @@
 ## 4. 组合索引
 指多个字段上创建的索引，只有在查询条件中使用了创建索引时的第一个字段，索引才会被使用 
 ALTER TABLE `table` ADD INDEX name_city_age (name,city,age); 
-## 5. 全文索引
+## 5. 前缀索引
+在较长的字段建立索引，可以建立前缀索引。如果要模糊匹配只有右边模糊匹配才会用到索引。
+alter table `table` add index idx2 (msg(15));
+## 6. 全文索引
 仅支持InnoDB和MyISAM表，并且只能包含CHAR，VARCHAR和TEXT列。索引总是在整个列上进行；不支持列前缀索引
 
 # 索引方式
 ## BTree
-
+InnoDB、MyISAM只支持BTree方式
 ## Hash
 Hash 索引仅仅能满足"=","IN"和"<=>"查询，不能使用范围查询
