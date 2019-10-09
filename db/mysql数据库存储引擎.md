@@ -11,6 +11,3 @@
 1. 是否要支持事务，如果要请选择 InnoDB，如果不需要可以考虑 MyISAM；
 2. 如果表中绝大多数都只是读查询，可以考虑 MyISAM，如果有读写也挺频繁，请使用InnoDB。
 3. 系统奔溃后，MyISAM恢复起来更困难，能否接受，不能接受就选 InnoDB；4. MySQL5.5版本开始Innodb已经成为Mysql的默认引擎(之前是MyISAM)，说明其优势是有目共睹的。如果你不知道用什么存储引擎，那就用InnoDB，至少不会差。
-
-## 事务特性
-ACID：原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）、持久性（Durability）
