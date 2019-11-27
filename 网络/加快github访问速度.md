@@ -4,13 +4,14 @@ GitHub 在中国大陆访问速度慢的问题原因有很多，但最直接和�
 ## 操作
 一般的 DNS 问题都可以通过修改 Hosts 文件来解决。
 
-访问<https://www.ipaddress.com/>，搜索对应的域名的ip配置在hosts即可。
-本地配置如下：（可能不同网络不一样）
+访问<https://www.ipaddress.com/>，搜索对应的域名的ip配置在hosts即可。可以在F12看到哪个请求慢或者失败，搜索对应域名的ip配置hosts，可以加快速度。
+当前配置如下：（可能不同网络不一样）
 ```
 140.82.114.4 github.com
 199.232.5.194  github.global.ssl.fastly.net
 185.199.108.153 assets-cdn.github.com
 185.199.111.154 github.githubassets.com
+199.232.4.133 githubusercontent.com
 ```
 运行 ipconfig /flushdns 手动刷新系统DNS缓存。
 
