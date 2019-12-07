@@ -11,7 +11,7 @@ GitHub 在中国大陆访问速度慢的问题原因有很多，但最直接和�
 199.232.5.194  github.global.ssl.fastly.net
 185.199.109.153 assets-cdn.github.com
 185.199.108.154 github.githubassets.com
-199.232.4.133 raw.githubusercontent.com
+199.232.28.133 raw.githubusercontent.com
 199.232.28.133 avatars0.githubusercontent.com
 199.232.28.133 avatars1.githubusercontent.com
 199.232.28.133 avatars2.githubusercontent.com
