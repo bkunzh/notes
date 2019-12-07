@@ -10,9 +10,13 @@ GitHub 在中国大陆访问速度慢的问题原因有很多，但最直接和�
 192.30.253.113 github.com
 199.232.5.194  github.global.ssl.fastly.net
 185.199.109.153 assets-cdn.github.com
-185.199.111.154 github.githubassets.com
+185.199.108.154 github.githubassets.com
 199.232.4.133 raw.githubusercontent.com
-199.232.4.133 avatars2.githubusercontent.com
+199.232.28.133 avatars0.githubusercontent.com
+199.232.28.133 avatars1.githubusercontent.com
+199.232.28.133 avatars2.githubusercontent.com
+199.232.28.133 avatars3.githubusercontent.com
+192.30.253.118 gist.github.com
 ```
 运行 ipconfig /flushdns 手动刷新系统DNS缓存。
 
