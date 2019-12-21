@@ -9,6 +9,10 @@
 7. 断点、继续Go
 8. tools->hosts 可以修改host，不用到系统修改hosts。在没有switch hosts时可以用
 
+# 编辑自动响应器中的内容
+先用fiddler自带的edit response->textview来编辑保存，再用vim编辑保存，之后可以多次编辑（别的编辑器编辑会导致响应不能解析json）
+> 修改单次请求用断点，bpu/bpafter。修改多次请求，替换文件用自动响应器。
+
 # 命令
 忘了这些命令，在命令行输入 bp ，敲回车，就能看到提示了  
 - bpu
