@@ -15,7 +15,19 @@ ws.run "cmd /c G:\windowsStart\test_start.bat",vbhide
 使用说明见<https://github.com/winsw/winsw/blob/master/doc/installation.md>  
 - 可以搜索
 
+```
+winsw.xml
+<service>
+	<id>web-test</id>
+	<name>web-test</name>
+	<description>test jar windows service using winsw</description>
+	<executable>java</executable>
+	<arguments>-jar web-test-0.0.1-SNAPSHOT.jar</arguments>
+	<logmode>rotate</logmode>
+</service>
+```
+
 
 ## 参考
 - <https://blog.csdn.net/qq_32599479/article/details/87861815>
-- <https://www.jianshu.com/p/fc9e4ea61e13>
+
