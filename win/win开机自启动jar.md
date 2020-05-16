@@ -2,7 +2,7 @@
 1. 准备好你想要开机启动的jar包，并放入任意一个目录下，本文将jar包(test.jar)放在了桌面上，即C:\Users\admin-pc\Desktop\test.jar
 2. 创建一个.bat文件run.bat
 java -jar C:\Users\admin-pc\Desktop\test.jar > G:\windowsStart\test_start.log
-3. 创建一个.vbs文件run.vbs
+3. 创建一个.vbs文件，如test_start.vbs
 ```
 Set ws = CreateObject("Wscript.Shell") 
 ws.run "cmd /c G:\windowsStart\test_start.bat",vbhide
