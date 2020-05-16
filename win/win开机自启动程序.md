@@ -1,7 +1,7 @@
 ## 开机自启动任意程序，注册为服务（winsw让任何Windows程序都能运行为服务）
-使用[winsw](https://github.com/winsw/winsw/releases)  
-使用说明见<https://github.com/winsw/winsw/blob/master/doc/installation.md>  
-- 可以搜索
+> 使用[winsw](https://github.com/winsw/winsw/releases)  
+> 使用说明见<https://github.com/winsw/winsw/blob/master/doc/installation.md>  
+- 实践java项目见<https://github.com/bkunzh/spring-study/tree/master/web-test>
 
 ```
 winsw.xml
