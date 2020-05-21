@@ -19,7 +19,9 @@ OgnlCache.getValue("platNo == '0'", parameterObject)
 
 ![image-20200521171837422](mybatis.assets/image-20200521171837422.png)
 
+OgnlOps.equal:
 
+![image-20200521173859830](mybatis.assets/image-20200521173859830.png)
 
 2. platNo == '0'.toString()或platNo == "0"，都是string
    
