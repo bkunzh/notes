@@ -5,3 +5,6 @@ netstat -ano|findstr 6379
 netstat -ano|find "6379"
 ## 杀掉某个pid的进程
 taskkill -pid 5860 [-F]
+
+## 查看Java进程
+wmic process where caption="java.exe" get caption,commandline,ProcessId /value
