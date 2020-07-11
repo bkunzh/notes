@@ -60,16 +60,17 @@
         </plugins>
     </build>
 ```
-## 3. maven多仓库，之前配置多个镜像是没有用的，镜像是拦截指定仓库的。可以配置多个profile，激活指定的
+## 3. maven多仓库，之前配置多个镜像是没有用的，镜像是拦截指定仓库的。
+可以配置多个profile，激活指定的，根据需要开启不同的仓库，阿里仓库是比较快的。阿里没有的包，再打开其他profile，从其他仓库取
+
 settings.xml
 ```XML
-    <profiles>
     <profile> 
 	  <id>profile1</id>  
 	  <repositories> 
 	    <repository> 
 	     <id>alimaven</id>
-		 <url>https://maven.aliyun.com/nexus/content/groups/public/</url>
+		 <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
 	      <releases> 
 	        <enabled>true</enabled> 
 	      </releases>  
@@ -78,18 +79,13 @@ settings.xml
 	        <updatePolicy>always</updatePolicy> 
 	      </snapshots> 
 	    </repository> 
-		<!--<repository> 
-	     <id>aaacentral_repo2</id>
-		 <url>https://repo1.maven.org/maven2/</url>
-	      <releases> 
-	        <enabled>true</enabled> 
-	      </releases>  
-	      <snapshots> 
-	        <enabled>true</enabled>  
-	        <updatePolicy>always</updatePolicy> 
-	      </snapshots> 
-	    </repository> -->
-		<repository> 
+	  </repositories> 
+	</profile> 
+	
+	<profile> 
+	  <id>profile2</id>  
+	  <repositories>
+	  <repository> 
 	     <id>central_repo1</id>
 		 <url>https://repo.maven.apache.org/maven2/</url>
 	      <releases> 
@@ -100,12 +96,6 @@ settings.xml
 	        <updatePolicy>always</updatePolicy> 
 	      </snapshots> 
 	    </repository> 
-		
-	  </repositories> 
-	</profile> 
-	<profile> 
-	  <id>profile2</id>  
-	  <repositories>
 	  <repository> 
 		 <id>spring-repo</id>
 		 <url>https://repo.spring.io/release</url>
@@ -163,7 +153,7 @@ settings.xml
    <activeProfiles>
     <!-- 激活-->
     <activeProfile>profile1</activeProfile>
-    <activeProfile>profile2</activeProfile>
+	<!-- <activeProfile>profile2</activeProfile>-->
   </activeProfiles>
 ```
 ### 3.1 在pom.xml指定maven仓库
