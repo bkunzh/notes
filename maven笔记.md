@@ -60,45 +60,111 @@
         </plugins>
     </build>
 ```
-## 3. maven镜像
+## 3. maven多仓库，之前配置多个镜像是没有用的，镜像是拦截指定仓库的。可以配置多个profile，激活指定的
 settings.xml
 ```XML
-    <mirror>
-      <id>central repo</id>
-      <name>central repo</name>
-      <url>http://repo.maven.apache.org/maven2/</url>
-      <mirrorOf>central</mirrorOf>
-	  </mirror>
-    <mirror>
-      <id>alimaven</id>
-      <name>aliyun maven</name>
-      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-      <mirrorOf>central</mirrorOf>
-    </mirror>
-    <mirror>
-      <id>central</id>
-      <name>Maven Repository Switchboard</name>
-      <url>http://repo1.maven.org/maven2/</url>
-      <mirrorOf>central</mirrorOf>
-    </mirror>
-    <mirror>
-      <id>repo2</id>
-      <mirrorOf>central</mirrorOf>
-      <name>Human Readable Name for this Mirror.</name>
-      <url>http://repo2.maven.org/maven2/</url>
-    </mirror>
-    <mirror>
-      <id>ibiblio</id>
-      <mirrorOf>central</mirrorOf>
-      <name>Human Readable Name for this Mirror.</name>
-      <url>http://mirrors.ibiblio.org/pub/mirrors/maven2/</url>
-    </mirror>
-    <mirror>
-      <id>jboss-public-repository-group</id>
-      <mirrorOf>central</mirrorOf>
-      <name>JBoss Public Repository Group</name>
-      <url>http://repository.jboss.org/nexus/content/groups/public</url>
-    </mirror>
+    <profiles>
+    <profile> 
+	  <id>profile1</id>  
+	  <repositories> 
+	    <repository> 
+	     <id>alimaven</id>
+		 <url>https://maven.aliyun.com/nexus/content/groups/public/</url>
+	      <releases> 
+	        <enabled>true</enabled> 
+	      </releases>  
+	      <snapshots> 
+	        <enabled>true</enabled>  
+	        <updatePolicy>always</updatePolicy> 
+	      </snapshots> 
+	    </repository> 
+		<!--<repository> 
+	     <id>aaacentral_repo2</id>
+		 <url>https://repo1.maven.org/maven2/</url>
+	      <releases> 
+	        <enabled>true</enabled> 
+	      </releases>  
+	      <snapshots> 
+	        <enabled>true</enabled>  
+	        <updatePolicy>always</updatePolicy> 
+	      </snapshots> 
+	    </repository> -->
+		<repository> 
+	     <id>central_repo1</id>
+		 <url>https://repo.maven.apache.org/maven2/</url>
+	      <releases> 
+	        <enabled>true</enabled> 
+	      </releases>  
+	      <snapshots> 
+	        <enabled>true</enabled>  
+	        <updatePolicy>always</updatePolicy> 
+	      </snapshots> 
+	    </repository> 
+		
+	  </repositories> 
+	</profile> 
+	<profile> 
+	  <id>profile2</id>  
+	  <repositories>
+	  <repository> 
+		 <id>spring-repo</id>
+		 <url>https://repo.spring.io/release</url>
+		 <releases> 
+	        <enabled>true</enabled> 
+	      </releases>  
+	      <snapshots> 
+	        <enabled>true</enabled>  
+	        <updatePolicy>always</updatePolicy> 
+	      </snapshots> 
+	    </repository> 
+	  <repository> 
+		 <id>spring-snapshot</id>
+		 <url>https://repo.spring.io/snapshot</url>
+		 <releases> 
+	        <enabled>true</enabled> 
+	      </releases>  
+	      <snapshots> 
+	        <enabled>true</enabled>  
+	        <updatePolicy>always</updatePolicy> 
+	      </snapshots> 
+	    </repository> 
+	    <repository> 
+	     <id>central_repo33</id>
+		 <url>https://repo1.maven.org/maven2/</url>
+	      <releases> 
+	        <enabled>true</enabled> 
+	      </releases>  
+	      <snapshots> 
+	        <enabled>true</enabled>  
+	        <updatePolicy>always</updatePolicy> 
+	      </snapshots> 
+	    </repository> 
+	  </repositories> 
+	</profile>  
+	<profile> 
+	  <id>prfile3</id>  
+	  <repositories> 
+	    <repository> 
+	      <id>maven-central</id>  
+	      <url>https://central.maven.org/maven2/</url>  
+	      <releases> 
+	        <enabled>true</enabled> 
+	      </releases>  
+	      <snapshots> 
+	        <enabled>true</enabled>  
+	        <updatePolicy>always</updatePolicy> 
+	      </snapshots> 
+	    </repository> 
+	  </repositories> 
+	</profile> 
+	
+  </profiles>
+  
+   <activeProfiles>
+    <!-- 激活-->
+    <activeProfile>profile1</activeProfile>
+    <activeProfile>profile2</activeProfile>
+  </activeProfiles>
 ```
 ### 3.1 在pom.xml指定maven仓库
 ```xml
