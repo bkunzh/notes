@@ -3,6 +3,16 @@
 > 使用说明见<https://github.com/winsw/winsw/blob/master/doc/installation.md>  
 - 实践java项目见<https://github.com/bkunzh/spring-study/tree/master/web-test>
 
+myapp.exe install <OPTIONS>  
+myapp.exe start/restart
+myapp.exe uninstall  
+
+### 程序关闭不了
+netstat -ano | findstr 9998  
+taskkill -pid 进程ID  # 似乎关不了，只能用任务管理器
+//查看Java进程  
+wmic process where caption="java.exe" get caption,commandline,ProcessId /value  
+
 ```
 winsw.xml
 <service>
