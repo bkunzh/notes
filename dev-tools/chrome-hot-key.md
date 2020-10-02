@@ -1,0 +1,12 @@
+- 关闭当前标签页 Ctrl + w
+- 重新打开最后关闭的标签页，并跳转到该标签页 Ctrl + Shift + t
+- 跳转到上一个打开的标签页 Ctrl + PgUp 或 Ctrl + Shift + Tab
+- 跳转到下一个打开的标签页 Ctrl + PgDn 或 Ctrl + Tab 
+- 显示或隐藏书签栏 Ctrl + Shift + b
+- 向下滚动网页，一次一个屏幕	空格键 或 PgDn
+- 向上滚动网页，一次一个屏幕	Shift+空格键 或 PgUp
+- 在网页上水平滚动	按住 Shift 键并滚动鼠标滚轮
+- 开启或关闭全屏模式	F11
+- 在最大化模式和窗口模式间切换 	双击标签栏的空白区域
+- 帮助 F1，见<https://support.google.com/chrome/?p=help&ctx=keyboard#topic=7438008>
+
