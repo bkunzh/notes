@@ -3,17 +3,18 @@
 - [0. 要理解maven生命周期](#0-要理解maven生命周期)
 - [1. mvn install](#1-mvn-install)
 - [2. maven设置默认JDK版本](#2-maven设置默认jdk版本)
-- [3. maven镜像](#3-maven镜像)
-    - [3.1 在pom.xml指定maven仓库](#31-在pomxml指定maven仓库)
+- [3. maven多仓库，之前配置多个镜像是没有用的，镜像是拦截指定仓库的。](#3-maven多仓库之前配置多个镜像是没有用的镜像是拦截指定仓库的)
+	- [3.1 在pom.xml指定maven仓库](#31-在pomxml指定maven仓库)
 - [4. maven 聚合 继承](#4-maven-聚合-继承)
-    - [4.0 继承和传递依赖](#40-继承和传递依赖)
-        - [1) 继承](#1-继承)
-        - [2) 依赖传递](#2-依赖传递)
-            - [2.1) scope的依赖传递](#21-scope的依赖传递)
-    - [4.1 聚合](#41-聚合)
-    - [4.2 继承](#42-继承)
-    - [4.3 总结](#43-总结)
-    - [4.4 参考](#44-参考)
+	- [4.0 继承和传递依赖](#40-继承和传递依赖)
+		- [1) 继承](#1-继承)
+		- [2) 依赖传递](#2-依赖传递)
+			- [2.1) scope的依赖传递](#21-scope的依赖传递)
+			- [2.2) maven依赖的optional元素](#22-maven依赖的optional元素)
+	- [4.1 聚合](#41-聚合)
+	- [4.2 继承](#42-继承)
+	- [4.3 总结](#43-总结)
+	- [4.4 参考](#44-参考)
 - [5. maven命令](#5-maven命令)
 - [6. maven的全局setting.xml和项目pom.xml的优先级](#6-maven的全局settingxml和项目pomxml的优先级)
 
@@ -191,11 +192,12 @@ settings.xml
 > 在Maven中，依赖是可以传递的
 就是说假设存在三个项目，分别是项目A，项目B以及项目C，假设C依赖于B，B依赖于A，那么我们可以根据Maven项目依赖的特征不难推出项目C也依赖于A
 ##### 2.1) scope的依赖传递
-A–>B–>C。当前项目为A，A依赖于B，B依赖于C。知道B在A项目中的scope，那么怎么知道C在A中的scope呢？答案是： 
-当C是test或者provided时，C直接被丢弃，A不依赖C； 
-如图：~~(竖向：c在b的scope，横向：b在a的scope)~~ 好像不是这样？？ 
-![](imgs/maven_scope_transitive.jpg)
-
+A–>B–>C。当前项目为A，A依赖于B，B依赖于C。知道B在A项目中的scope，那么怎么知道C在A中的scope呢？答案是：  
+当C是test或者provided时，C直接被丢弃，A不依赖C；  
+如图：(竖向：b在a的scope，横向：c在b的scope)
+![a](../imgs/maven_scope_transitive.jpg)
+##### 2.2) maven依赖的optional元素
+optional依赖不会被传递依赖，即Project A的某个依赖D添加了`<optional>true</optional>`，当别人通过pom依赖Project A的时候，D不会被传递依赖进来
 ### 4.1 聚合
 > 把多个模块或项目聚合到一起，就能一次构建多个模块或项目。需要建立一个专门负责聚合工作的Maven项目（聚合项目）
 
