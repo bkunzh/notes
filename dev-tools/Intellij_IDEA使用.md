@@ -1,4 +1,4 @@
-## 一些设置
+## 一些高效的设置
 1. 显示内存使用情况
 
    ![image-20201016094514132](Intellij_IDEA使用.assets/image-20201016094514132.png)
@@ -30,7 +30,9 @@
 
    ![image-20201016095622173](Intellij_IDEA使用.assets/image-20201016095622173.png)
 
-   
+8. auto import 设置
+
+   ![image-20201017120307864](Intellij_IDEA使用.assets/image-20201017120307864.png)
 
 ## 更多设置参考
 
