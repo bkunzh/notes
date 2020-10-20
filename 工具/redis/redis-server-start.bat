@@ -1,0 +1,1 @@
+start redis-server D:\app\Redis-x64-5.0.9\redis.windows.conf
